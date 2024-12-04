@@ -1,0 +1,252 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #1a1a1a;
+    color: white;
+}
+
+.login-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.game-container {
+    width: 1200px;
+    height: 800px;
+    margin: 20px auto;
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.table {
+    width: 800px;
+    height: 400px;
+    background: #277234;
+    border: 20px solid #4a3500;
+    border-radius: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.players-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.player-position {
+    position: absolute;
+    width: 150px;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.player-position[data-position="0"] { /* Снизу по центру */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player-position[data-position="1"] { /* Снизу справа */
+    bottom: 15%;
+    right: 0;
+}
+
+.player-position[data-position="2"] { /* Справа */
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.player-position[data-position="3"] { /* Сверху справа */
+    top: 15%;
+    right: 0;
+}
+
+.player-position[data-position="4"] { /* Сверху по центру */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player-position[data-position="5"] { /* Сверху слева */
+    top: 15%;
+    left: 0;
+}
+
+.player-position[data-position="6"] { /* Слева */
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.player-position[data-position="7"] { /* Снизу слева */
+    bottom: 15%;
+    left: 0;
+}
+
+.player-cards {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.card {
+    width: 40px;
+    height: 60px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: black;
+}
+
+.card.red-suit {
+    color: #ff0000;
+}
+
+.card.card-back {
+    background: #2962ff;
+    color: white;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 5px,
+        rgba(255,255,255,0.1) 5px,
+        rgba(255,255,255,0.1) 10px
+    );
+}
+
+.card:not(.card-back) {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+}
+
+.community-cards {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 10px;
+}
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.game-messages {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.dealer-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.player-hand {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.raise-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.winner-info {
+    background: rgba(255, 215, 0, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.player-position.folded {
+    opacity: 0.5;
+    filter: grayscale(100%);
+}
+
+.player-position.active {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.game-messages {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Arial Black', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.logo span:first-child {
+    color: #ff3333;
+}
+
+.logo span:last-child {
+    color: #3366ff;
+}
+
+.player-name {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.player-chips, .player-bet {
+    font-size: 12px;
+    opacity: 0.8;
+} 

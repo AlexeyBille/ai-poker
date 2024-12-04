@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Онлайн Покер</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="logo">
+        <span>ПЕРВЫЙ</span> <span>БИТ</span>
+    </div>
+
+    <div class="login-screen" id="loginScreen">
+        <input type="text" id="playerName" placeholder="Ваше имя">
+        <button id="joinGame">Присоединиться к игре</button>
+    </div>
+
+    <div class="game-container" id="gameContainer" style="display: none;">
+        <div class="game-info">
+            <div class="pot">Банк: <span id="potAmount">0</span></div>
+            <div class="current-bet">Текущая ставка: <span id="currentBet">0</span></div>
+        </div>
+
+        <div class="table">
+            <div class="community-cards" id="communityCards"></div>
+            <div class="players-container" id="playersContainer"></div>
+            <div class="dealer-button" id="dealerButton">D</div>
+        </div>
+        
+        <div class="player-hand" id="playerHand"></div>
+        
+        <div class="controls" id="controls">
+            <button id="fold" disabled>Фолд</button>
+            <button id="check" disabled>Чек</button>
+            <button id="call" disabled>Колл</button>
+            <div class="raise-controls">
+                <button id="raise" disabled>Рейз</button>
+                <input type="range" id="raiseAmount" min="0" max="1000" value="0">
+                <span id="raiseValue">0</span>
+            </div>
+        </div>
+
+        <div class="game-messages" id="gameMessages"></div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html> 
